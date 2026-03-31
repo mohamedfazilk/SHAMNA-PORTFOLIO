@@ -69,7 +69,11 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
-            className="font-display text-xl font-bold tracking-tight text-dark-900 dark:text-white"
+            className={`font-display text-xl font-bold tracking-tight transition-colors duration-300 ${
+              scrolled || mobileOpen
+                ? 'text-dark-900 dark:text-white'
+                : 'text-white'
+            }`}
           >
             SHAMNA
           </a>
@@ -103,7 +107,11 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
           <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={toggleDarkMode}
-              className="flex items-center justify-center w-10 h-10 rounded-xl bg-dark-900/5 dark:bg-white/10 text-dark-700 dark:text-dark-200 hover:bg-dark-900/10 dark:hover:bg-white/20 transition-all duration-300 shrink-0"
+              className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 shrink-0 ${
+                scrolled || mobileOpen
+                  ? 'bg-dark-900/5 dark:bg-white/10 text-dark-700 dark:text-dark-200 hover:bg-dark-900/10 dark:hover:bg-white/20'
+                  : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur-md'
+              }`}
               aria-label="Toggle dark mode"
               id="dark-mode-toggle"
             >
@@ -134,7 +142,11 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-dark-900/5 dark:bg-white/10 text-dark-700 dark:text-dark-200 hover:bg-dark-900/10 dark:hover:bg-white/20 transition-all duration-300 shrink-0 relative z-50 cursor-pointer"
+              className={`md:hidden flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 shrink-0 relative z-50 cursor-pointer ${
+                scrolled || mobileOpen
+                  ? 'bg-dark-900/5 dark:bg-white/10 text-dark-700 dark:text-dark-200 hover:bg-dark-900/10 dark:hover:bg-white/20'
+                  : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur-md'
+              }`}
               aria-label="Toggle menu"
               id="mobile-menu-toggle"
             >
