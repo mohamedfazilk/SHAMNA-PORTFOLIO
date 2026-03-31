@@ -32,10 +32,23 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Text content */}
           <div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="mb-8"
+            >
+              <img
+                src="/images/profile.jpeg"
+                alt="Shamna"
+                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-dark-900/10 dark:border-white/10 shadow-xl"
+              />
+            </motion.div>
+
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="heading-lg text-dark-900 dark:text-white mb-8"
             >
               Crafting Visual
