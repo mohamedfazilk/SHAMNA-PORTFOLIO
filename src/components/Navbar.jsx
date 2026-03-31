@@ -87,14 +87,16 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-lg ${
                   activeSection === link.href.slice(1)
-                    ? 'text-dark-900 dark:text-white'
-                    : 'text-dark-400 dark:text-dark-500 hover:text-dark-700 dark:hover:text-dark-200'
+                    ? (scrolled ? 'text-dark-900 dark:text-white' : 'text-white')
+                    : (scrolled ? 'text-dark-400 dark:text-dark-500 hover:text-dark-700 dark:hover:text-dark-200' : 'text-white/70 hover:text-white')
                 }`}
               >
                 {activeSection === link.href.slice(1) && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute inset-0 bg-dark-900/5 dark:bg-white/10 rounded-lg"
+                    className={`absolute inset-0 rounded-lg ${
+                      scrolled ? 'bg-dark-900/5 dark:bg-white/10' : 'bg-white/10'
+                    }`}
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
