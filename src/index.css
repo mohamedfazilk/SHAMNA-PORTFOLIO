@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-body text-dark-900 bg-primary-50 dark:bg-dark-950 dark:text-dark-100 transition-colors duration-500;
+  }
+
+  ::selection {
+    @apply bg-accent-400/30 text-dark-900;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-5 sm:px-8 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .section-spacing {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .heading-xl {
+    @apply font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold tracking-tight leading-[0.9];
+  }
+
+  .heading-lg {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight;
+  }
+
+  .heading-md {
+    @apply font-display text-2xl sm:text-3xl font-medium tracking-tight;
+  }
+
+  .text-body {
+    @apply font-body text-base md:text-lg leading-relaxed text-dark-500 dark:text-dark-300;
+  }
+
+  .text-label {
+    @apply font-mono text-xs tracking-[0.2em] uppercase text-dark-400 dark:text-dark-500;
+  }
+
+  .glass-card {
+    @apply bg-white/70 dark:bg-dark-900/70 backdrop-blur-xl border border-white/20 dark:border-dark-700/30 rounded-2xl shadow-lg shadow-dark-900/5 dark:shadow-black/20;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-dark-900 dark:bg-white text-white dark:text-dark-900 font-body font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-dark-800 dark:hover:bg-dark-100 hover:shadow-xl hover:shadow-dark-900/20 dark:hover:shadow-white/20 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-8 py-4 border-2 border-dark-900 dark:border-white text-dark-900 dark:text-white font-body font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-dark-900 hover:text-white dark:hover:bg-white dark:hover:text-dark-900 hover:-translate-y-0.5 active:translate-y-0;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-500 via-accent-400 to-accent-600 bg-clip-text text-transparent;
+  }
+
+  .line-decoration {
+    @apply relative;
+  }
+
+  .line-decoration::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-12 h-0.5 bg-accent-400;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-300 dark:bg-dark-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-dark-400 dark:bg-dark-500;
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  @apply fixed inset-0 z-50 bg-dark-950/95 backdrop-blur-sm flex items-center justify-center;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  @apply fixed top-0 left-0 h-[3px] bg-gradient-to-r from-accent-400 to-accent-600 z-[100] origin-left;
+}
