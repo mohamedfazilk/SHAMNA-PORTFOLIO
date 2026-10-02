@@ -2,13 +2,18 @@ import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { HiArrowRight } from 'react-icons/hi';
 
-const exteriorProjects = Array.from({ length: 8 }, (_, i) => ({
+const exteriorImageSources = [
+  ...Array.from({ length: 8 }, (_, i) => `/images/exterior-${i + 1}.jpeg`),
+  ...[3, 4, 5, 6, 7, 8, 9].map((n) => `/images/Exterior--${n}.jpeg`),
+];
+
+const exteriorProjects = exteriorImageSources.map((img, i) => ({
   id: `ext-${i + 1}`,
   title: `Exterior Visualization ${i + 1}`,
   category: 'Exterior',
   description: 'Modern exterior architectural visualization showcasing unique design elements and natural integration.',
-  thumbnail: `/images/exterior-${i + 1}.jpeg`,
-  images: [`/images/exterior-${i + 1}.jpeg`],
+  thumbnail: img,
+  images: [img],
 }));
 
 const interiorProjects = Array.from({ length: 12 }, (_, i) => ({

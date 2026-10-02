@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiSun, HiMoon, HiMenuAlt4, HiX } from 'react-icons/hi';
+import { FaInstagram } from 'react-icons/fa';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -107,6 +108,21 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
 
           {/* Actions */}
           <div className="flex items-center gap-2 shrink-0">
+            <a
+              href="https://www.instagram.com/archviz.byshamna?stkn=NnhobGwzOWRlcWk1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 shrink-0 ${
+                scrolled || mobileOpen
+                  ? 'bg-dark-900/5 dark:bg-white/10 text-dark-700 dark:text-dark-200 hover:bg-dark-900/10 dark:hover:bg-white/20'
+                  : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur-md'
+              }`}
+              aria-label="Instagram Profile"
+              id="nav-instagram"
+            >
+              <FaInstagram className="w-5 h-5" />
+            </a>
+
             <button
               onClick={toggleDarkMode}
               className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 shrink-0 ${
@@ -186,6 +202,18 @@ export default function Navbar({ darkMode, toggleDarkMode }) {
                   {link.name}
                 </motion.a>
               ))}
+              <motion.a
+                href="https://www.instagram.com/archviz.byshamna?stkn=NnhobGwzOWRlcWk1"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
+                className="flex items-center gap-3 text-2xl font-display font-semibold py-4 text-pink-600 dark:text-pink-400"
+              >
+                <FaInstagram className="w-7 h-7" />
+                <span>Follow on Instagram</span>
+              </motion.a>
             </div>
           </motion.div>
         )}

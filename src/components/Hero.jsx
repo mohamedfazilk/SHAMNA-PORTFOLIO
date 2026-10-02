@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { HiArrowDown } from 'react-icons/hi';
+import { FaInstagram } from 'react-icons/fa';
 
 export default function Hero() {
   const handleViewProjects = (e) => {
@@ -60,19 +61,29 @@ export default function Hero() {
         >
           <button
             onClick={handleViewProjects}
-            className="group inline-flex items-center gap-3 px-10 py-4 bg-white text-dark-900 font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-accent-400 hover:text-white hover:shadow-2xl hover:shadow-accent-400/30 hover:-translate-y-0.5"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-dark-900 font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-accent-400 hover:text-white hover:shadow-2xl hover:shadow-accent-400/30 hover:-translate-y-0.5"
             id="cta-view-projects"
           >
             View Projects
             <HiArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
           </button>
           <a
+            href="https://www.instagram.com/archviz.byshamna?stkn=NnhobGwzOWRlcWk1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-xl hover:shadow-pink-500/25 hover:-translate-y-0.5"
+            id="cta-instagram"
+          >
+            <FaInstagram className="w-4 h-4" />
+            <span>Instagram</span>
+          </a>
+          <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/50 hover:-translate-y-0.5 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-medium text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/50 hover:-translate-y-0.5 backdrop-blur-sm"
             id="cta-contact"
           >
             Get in Touch

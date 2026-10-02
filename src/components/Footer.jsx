@@ -3,9 +3,9 @@ import { HiHeart } from 'react-icons/hi';
 import { FaBehance, FaInstagram, FaLinkedinIn, FaDribbble } from 'react-icons/fa';
 
 const socialLinks = [
+  { icon: FaInstagram, href: 'https://www.instagram.com/archviz.byshamna?stkn=NnhobGwzOWRlcWk1', label: 'Instagram' },
   { icon: FaLinkedinIn, href: '#', label: 'LinkedIn' },
   { icon: FaBehance, href: '#', label: 'Behance' },
-  { icon: FaInstagram, href: '#', label: 'Instagram' },
   { icon: FaDribbble, href: '#', label: 'Dribbble' },
 ];
 
@@ -32,6 +32,8 @@ export default function Footer() {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target={social.href.startsWith('http') ? '_blank' : '_self'}
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 rounded-xl bg-dark-900/5 dark:bg-white/10 flex items-center justify-center text-dark-500 dark:text-dark-400 hover:bg-accent-400 hover:text-white transition-all duration-300"

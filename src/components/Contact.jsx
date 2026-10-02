@@ -1,8 +1,15 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { HiMail, HiPhone, HiLocationMarker, HiPaperAirplane } from 'react-icons/hi';
+import { FaInstagram } from 'react-icons/fa';
 
 const contactInfo = [
+  {
+    icon: FaInstagram,
+    label: 'Instagram',
+    value: '@archviz.byshamna',
+    href: 'https://www.instagram.com/archviz.byshamna?stkn=NnhobGwzOWRlcWk1',
+  },
   {
     icon: HiPhone,
     label: 'Phone',
@@ -89,6 +96,8 @@ export default function Contact() {
                   {info.href ? (
                     <a
                       href={info.href}
+                      target={info.href.startsWith('http') ? '_blank' : '_self'}
+                      rel="noopener noreferrer"
                       className="group glass-card p-6 flex items-center gap-5 hover:shadow-xl hover:shadow-dark-900/5 dark:hover:shadow-black/20 transition-all duration-500 hover:-translate-y-1"
                       id={`contact-${info.label.toLowerCase()}`}
                     >
